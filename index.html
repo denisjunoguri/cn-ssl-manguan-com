@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>满冠体育 · 知识库入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #f1f3f6;
+            color: #2c3e4f;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+        }
+
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* ---------- grid 目录感 ---------- */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2.2rem 0 3rem;
+        }
+
+        /* ---------- 卡片 ---------- */
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.8rem 1.6rem 1.6rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e6eaef;
+            transition: box-shadow 0.18s, transform 0.1s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 22px rgba(0, 20, 30, 0.06);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2b38;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card h3::before {
+            content: "▹";
+            color: #3f7c8c;
+            font-size: 1.2rem;
+        }
+
+        .card p, .card li {
+            font-size: 0.97rem;
+            color: #3d4c5c;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0.2rem;
+        }
+
+        .card li {
+            padding: 0.3rem 0;
+            position: relative;
+            padding-left: 1.4rem;
+        }
+
+        .card li::before {
+            content: "·";
+            position: absolute;
+            left: 0.25rem;
+            color: #5f8b9a;
+            font-weight: bold;
+        }
+
+        /* ---------- hero / 标题区域 ---------- */
+        .hero {
+            text-align: left;
+            padding: 0.5rem 0 0.6rem;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 550;
+            letter-spacing: -0.01em;
+            color: #1f2f3b;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero .sub {
+            font-size: 1.05rem;
+            color: #556b7c;
+            max-width: 580px;
+            border-left: 3px solid #8baec0;
+            padding-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ---------- 说明区、提示区、相关信息区 ---------- */
+        .zone-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 2.6rem 0 1.2rem;
+        }
+
+        .zone {
+            flex: 1 1 280px;
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.5rem 1.5rem 1.6rem;
+            border: 1px solid #e0e6ed;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .zone h4 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #264653;
+            border-bottom: 1px solid #e6edf2;
+            padding-bottom: 0.6rem;
+            margin-bottom: 0.9rem;
+            letter-spacing: 0.3px;
+        }
+
+        .zone p, .zone li {
+            font-size: 0.96rem;
+        }
+
+        .zone ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .zone li {
+            padding: 0.25rem 0 0.25rem 1.2rem;
+            position: relative;
+        }
+
+        .zone li::before {
+            content: "–";
+            position: absolute;
+            left: 0.2rem;
+            color: #698b9c;
+        }
+
+        .highlight-box {
+            background: #f5f9fc;
+            border-radius: 14px;
+            padding: 1rem 1.3rem;
+            margin-top: 1.2rem;
+            border: 1px solid #dde4eb;
+        }
+
+        .faq-mini {
+            margin-top: 2.2rem;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #e3e9f0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #1e3643;
+        }
+
+        .faq-a {
+            font-size: 0.95rem;
+            color: #405a6c;
+            padding-top: 0.15rem;
+        }
+
+        .link-sentence {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 2rem;
+            margin: 2.2rem 0 0.8rem;
+            border: 1px solid #e2e9f0;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.02);
+            font-size: 1.05rem;
+        }
+
+        .link-sentence a {
+            color: #1f6680;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #b6cfdd;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .link-sentence a:hover {
+            color: #0b465e;
+            border-bottom-color: #0b465e;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #dce3eb;
+            margin: 1.8rem 0 0.4rem;
+        }
+
+        .footer-note {
+            font-size: 0.85rem;
+            color: #6e859a;
+            text-align: left;
+            margin: 2rem 0 0.2rem;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 1rem;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .hero .sub {
+                font-size: 0.95rem;
+                padding-left: 1rem;
+            }
+            .card {
+                padding: 1.3rem;
+            }
+            .zone {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>知识库 · 日常查询</h1>
+        <div class="sub">围绕「满冠体育」的索引、对照与延伸阅读，温和地理解体育信息。</div>
+    </div>
+
+    <!-- 目录感卡片网格 -->
+    <div class="intro-grid">
+        <div class="card">
+            <h3>赛事参考</h3>
+            <ul>
+                <li>赛历与赛季节点</li>
+                <li>常规赛 / 季后赛结构</li>
+                <li>积分与排名对照表</li>
+                <li>常见术语速查</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>场馆与设施</h3>
+            <ul>
+                <li>场地规格与用途</li>
+                <li>运动面层分类</li>
+                <li>照明与看台配置</li>
+                <li>日常维护要点</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>运动与训练</h3>
+            <ul>
+                <li>基础训练周期</li>
+                <li>恢复与营养备忘</li>
+                <li>常见损伤预防</li>
+                <li>器材选择参考</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 说明区 + 提示区 + 相关信息区 三列 -->
+    <div class="zone-row">
+        <div class="zone">
+            <h4>📖 说明区</h4>
+            <p>本页用作轻量级知识入口，聚焦体育领域最常被查询的板块。内容基于公开资料与一般经验整理，不构成专业训练或医疗建议。适合日常浏览、对照思路或延伸阅读时用作起点。</p>
+            <p style="margin-top: 0.8rem;">资料会随着赛季与规则更新而调整，建议结合最新信息使用。</p>
+        </div>
+        <div class="zone">
+            <h4>💡 提示区</h4>
+            <ul>
+                <li>对比不同赛事规则时，留意版本年份</li>
+                <li>训练计划应结合个人体能，循序渐进</li>
+                <li>场地数据可向运营方确认具体参数</li>
+                <li>运动前后注意充分热身与拉伸</li>
+            </ul>
+            <div class="highlight-box">
+                ⚡ 查阅时保持开放心态，体育知识常更新。
+            </div>
+        </div>
+        <div class="zone">
+            <h4>🔗 相关信息</h4>
+            <ul>
+                <li>运动协会与组织索引</li>
+                <li>标准竞赛规则摘要</li>
+                <li>体育装备分类指南</li>
+                <li>赛事转播与数据平台</li>
+                <li>青少年体适能参考</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <div class="faq-item">
+            <div class="faq-q">Q: 如何快速查找当前赛季的关键日期？</div>
+            <div class="faq-a">多数联盟会在官网公布赛历，也可以关注体育数据聚合站。部分赛事有固定周期，例如跨年赛季的常规赛通常从秋季延续至次年春季。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q: 训练后肌肉酸痛持续较久，需要注意什么？</div>
+            <div class="faq-a">延迟性肌肉酸痛属正常现象，可适当休息、补充水分与蛋白质。若疼痛超过一周或影响活动，建议咨询运动康复人员。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q: 不同场地材质对运动表现有多大影响？</div>
+            <div class="faq-a">场地硬度、摩擦系数和回弹性都会影响移动与发力。例如塑胶地面缓冲较好，木地板更偏弹性，具体选择取决于运动项目与个人偏好。</div>
+        </div>
+    </div>
+
+    <!-- 链接自然嵌入句子 -->
+    <div class="link-sentence">
+        在日常查询体育信息时，<a href="https://cn-ssl-manguan.com">满冠体育</a> 可作为参考站点之一，整合赛事、场地与训练相关的内容，供对照与延伸阅读。
+    </div>
+
+    <!-- 第二个链接，不同句式，但同样符合规则 -->
+    <div style="margin-top: 0.4rem; font-size: 0.95rem; padding: 0.2rem 0.5rem; color: #4a6577;">
+        ⚬ 如果你常浏览运动知识库，也许会注意到 <a href="https://cn-ssl-manguan.com" style="color: #1f6680; text-decoration: underline 1px dotted #9bb7c9; text-underline-offset: 3px;">满冠体育</a> 的页面结构比较清晰，适合快速定位信息。
+    </div>
+
+    <hr>
+
+    <div class="footer-note">
+        知识库入口 · 温和 流畅 无广 · v9a98c1c48b9277f3
+    </div>
+</div>
+</body>
+</html>

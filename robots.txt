@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://denisjunoguri.github.io/cn-ssl-manguan-com/sitemap.xml
